@@ -288,20 +288,31 @@ html_str = html_str + f"""
 
 
 
-
 #Print the matchup based on the week. Winning = Green, Losing = Red, Tie = Blue
 def Create_Scoreboard(filename, week):
+    filename = 'Weeks/' + filename
     week = week
-    new_html_str = f"""<body style="background-color:powderblue;">
+    new_html_str = f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Week {week}: The Whole West Cary League</title>
+</head>
+    
+    
+    
 
-{style}
+<link rel="stylesheet" type="text/css" href="../style.css">
 
 <h1 style='text-align:center;'> Scoreboard (Week {week}) </h1>
  
 <h4 style='text-align:center;'> <div class="dropdown"; style='text-align:center'>
   <button class="dropbtn">Select Week</button>
   <div class="dropdown-content">
-    <a href="hi.html">Home/Standings</a>
+    <a href="../index.html">Home/Standings</a>
     <a href="week1.html">Week 1</a>
     <a href="week2.html">Week 2</a>
     <a href="week3.html">Week 3</a>
@@ -321,8 +332,7 @@ def Create_Scoreboard(filename, week):
   </div>
 </div> </h4>
 
-</body>
-</html>  """
+<table style='width:100%'> """
 
 
 
@@ -334,15 +344,24 @@ def Create_Scoreboard(filename, week):
             team_two = str(matchup_list[ml][3])
             score_two = str(matchup_list[ml][4])
             if score_one > score_two:
-                modifier1 = 'mediumseagreen'
-                modifier2 = 'red'
+                new_html_str = new_html_str + f"""
+                <tr>
+                <td><div class="win"> {team_one} {score_one}</div></td>
+                <td> vs. </td>
+                <td><div class="lose"> {score_two} {team_two}</div></td>
+                </tr>"""
             if score_two > score_one:
-                modifier1 = 'red'
-                modifier2 = 'mediumseagreen'
-            else:
-                modifier1 = 'mediumblue'
-                modifier2 = 'mediumblue'
-            new_html_str = new_html_str + f"<table style='width:100%'><tr><th><h2 style='text-align:left; color:{modifier1}'>{team_one} {score_one}</h2></th><th><h2> vs. </th><th><h2 style='text-align:right; color:{modifier2}'>  {score_two} {team_two}</h2></th></table>"
+                new_html_str = new_html_str + f"""
+                <tr>
+                <td><div class="lose"> {team_one} {score_one}</div></td>
+                <td> vs. </td>
+                <td><div class="win"> {score_two} {team_two}</div></td>
+                </tr>"""
+
+ 
+    new_html_str = new_html_str + """</table>
+    </body>
+    </html>"""
     if filename == 'hi.html':
         Html_file= open(filename,"w")
         Html_file.write(html_str + new_html_str)
@@ -352,7 +371,7 @@ def Create_Scoreboard(filename, week):
         Html_file.write(new_html_str)
         Html_file.close()
 
-Create_Scoreboard('index.html', week)
+# Create_Scoreboard('index.html', week)
 for i in range(1,16):
     filename = f'week{i}.html'
     week = i
