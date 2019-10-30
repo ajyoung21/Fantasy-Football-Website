@@ -22,6 +22,14 @@ elif datetime.datetime.now()<datetime.datetime(2019,10,23):
         week = 7
 elif datetime.datetime.now()<datetime.datetime(2019,10,30):
         week = 8
+elif datetime.datetime.now()<datetime.datetime(2019,11,6):
+        week = 9
+elif datetime.datetime.now()<datetime.datetime(2019,11,13):
+        week = 10
+elif datetime.datetime.now()<datetime.datetime(2019,11,20):
+        week = 11
+elif datetime.datetime.now()<datetime.datetime(2019,11,27):
+        week = 12
 
 
 #Hack into league
@@ -65,12 +73,12 @@ team_num = [1,2,3,4,5,6,7,8,9,10]
 
 
 
-Colby_GIF = '<img src="Colby.gif" alt="ColbyGIF" style="width:168px;height:120px;">'
-Avi_GIF = '<img src="Avi.gif" alt="AviGIF" style="width:168px;height:120px;">'
-Aaron_GIF = '<img src="Aaron.gif" alt="AaronGIF" style="width:168px;height:120px;">'
-Alex_GIF = '<img src="Whole_Doods.gif" alt="AlexGIF" style="width:168px;height:120px;">'
-Allison_Gif = '<img src="Allison.gif" alt="AllisonGIF" style="width:168px;height:120px;">'
-Tommy_GIF = '<img src="Tommy.gif" alt="TommyGIF" style="width:168px;height:120px;">'
+Colby_GIF = '<img src="Images/Colby.gif" alt="ColbyGIF" style="width:168px;height:120px;" class="gif">'
+Avi_GIF = '<img src="Images/Avi.gif" alt="AviGIF" style="width:168px;height:120px;" class="gif">'
+Aaron_GIF = '<img src="Images/Aaron.gif" alt="AaronGIF" style="width:168px;height:120px;" class="gif">'
+Alex_GIF = '<img src="Images/Whole_Doods.gif" alt="AlexGIF" style="width:168px;height:120px;" class="gif">'
+Allison_Gif = '<img src="Images/Allison.gif" alt="AllisonGIF" style="width:168px;height:120px;" class="gif">'
+Tommy_GIF = '<img src="Images/Tommy.gif" alt="TommyGIF" style="width:168px;height:120px;" class="gif">'
 
 team_GIFs = [ Colby_GIF,'' , Avi_GIF, '', Aaron_GIF, '', Alex_GIF, Allison_Gif,'', Tommy_GIF]
 
@@ -151,11 +159,31 @@ html_str = (f"""
 <h1 style='text-align:center;'> The Whole West Cary League </h1>
 
 <center>
-<banner> <img src='Images/Colby.png' height='100'>
-  <img src='Images/AviLogo.png' height='100'>
-  <img src='Images/WholeDoods2.jpg'height='100' width="100">
-  <img src='Images/Aaron.png'height='100' width="100">
-  <img src='Images/Daniel_Logo.png' height='100' width="100">
+<banner> 
+    <div class="container">
+    <img src='Images/Colby.png' height='100' width="100">
+    <div class="overlay">
+    <div class="text">Commissioner Gordon ({records['Commissioner Gordon'][0]}-{records['Commissioner Gordon'][1]})</div></div></div>
+
+    <div class="container" img-2>
+    <img src='Images/AviLogo.png' height='100' width="131">
+    <div class="overlay">
+    <div class="text">Raleigh Primeshoppers ({records['Raleigh Primeshoppers'][0]}-{records['Raleigh Primeshoppers'][1]})</div></div></div>
+
+    <div class="container" img-3>
+    <img src='Images/WholeDoods2.jpg' height='100' width="100">
+    <div class="overlay">
+    <div class="text">WHOLE DOODS FC ({records['WHOLE DOODS FC'][0]}-{records['WHOLE DOODS FC'][1]})</div></div></div>
+
+      <div class="container" img-4>
+    <img src='Images/Aaron.png' height='100' width="100">
+    <div class="overlay">
+    <div class="text">Team Verbal Hologram ({records['Team Verbal Hologram'][0]}-{records['Team Verbal Hologram'][1]})</div></div></div>
+
+      <div class="container" img-5>
+    <img src='Images/Daniel_Logo.png' height='100' width="100">
+    <div class="overlay">
+    <div class="text">Wack Wack ({records['Wack Wack'][0]}-{records['Wack Wack'][1]})</div></div></div>
 
 </banner> </br>
 <banner>
@@ -163,22 +191,26 @@ html_str = (f"""
     <img src='Images/Allison.png' height='100' width="100">
     <div class="overlay">
     <div class="text">Team Pegasus ({records['Team Pegasus'][0]}-{records['Team Pegasus'][1]})</div></div></div>
-    <div class="container">
+    
+    <div class="container" img-2>
     <img src='Images/Tim_Logo.png' height='100' width="100">
     <div class="overlay">
-    <div class="text">(The Phantom Chef {records['The Phantom Chef'][0]}-{records['The Phantom Chef'][1]})</div></div></div>
-    <div class="container">
+    <div class="text">The Phantom Chef ({records['The Phantom Chef'][0]}-{records['The Phantom Chef'][1]})</div></div></div>
+    
+    <div class="container" img-3>
     <img src='Images/Chris_Logo.png' height='100' width="135">
     <div class="overlay">
-    <div class="text">(Produce Warriors {records['Produce Warriors'][0]}-{records['Produce Warriors'][1]})</div></div></div>
-    <div class="container">
+    <div class="text">Produce Warriors ({records['Produce Warriors'][0]}-{records['Produce Warriors'][1]})</div></div></div>
+    
+    <div class="container" img-4>
     <img src='Images/Andy.png' height='100' width="100">
     <div class="overlay">
-    <div class="text">(The T-Boners {records['The T-Boners'][0]}-{records['The T-Boners'][1]})</div></div></div>
-    <div class="container">
+    <div class="text">The T-Boners ({records['The T-Boners'][0]}-{records['The T-Boners'][1]})</div></div></div>
+    
+    <div class="container" img-5>
     <img src='Images/TommyLogo.png' height='100' width="100">
     <div class="overlay">
-    <div class="text">(The Butcher {records['The Butcher'][0]}-{records['The Butcher'][1]})</div></div></div>
+    <div class="text">The Butcher ({records['The Butcher'][0]}-{records['The Butcher'][1]})</div></div></div>
 </banner>
 </center>
 
@@ -280,6 +312,13 @@ def Create_Scoreboard(filename, week):
                 <td><div class="lose"> {team_one} {score_one}</div></td>
                 <td> vs. </td>
                 <td><div class="win"> {score_two} {team_two}</div></td>
+                </tr>"""
+            elif score_two == score_one:
+                score_html_str = score_html_str + f"""
+                <tr>
+                <td> {team_one} {score_one}</td>
+                <td> vs. </td>
+                <td> {score_two} {team_two}</td>
                 </tr>"""
     score_html_str = score_html_str + """</table>
                                          </body>
